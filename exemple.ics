@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MonApplication//Calendrier 1.0//FR
+BEGIN:VEVENT
+UID:1234567890@example.com
+DTSTAMP:20240219T120000Z
+DTSTART:20240225T090000Z
+DTEND:20240225T100000Z
+SUMMARY:Réunion avec l'équipe
+DESCRIPTION:Discussion des objectifs du projet et des prochaines étapes.
+LOCATION:Bureau principal
+STATUS:CONFIRMED
+ORGANIZER;CN=Jean Dupont:MAILTO:jean.dupont@example.com
+ATTENDEE;CN=Alice Martin:MAILTO:alice.martin@example.com
+ATTENDEE;CN=Bob Durand:MAILTO:bob.durand@example.com
+END:VEVENT
+END:VCALENDAR

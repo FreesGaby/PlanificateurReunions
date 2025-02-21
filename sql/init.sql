@@ -28,7 +28,7 @@ CREATE TABLE participants (
 -- Table pour les réunions
 CREATE TABLE reunions (
     id SERIAL PRIMARY KEY,
-    organisateur_id INTEGER REFERENCES organisateur(id) ON DELETE CASCADE,
+    organisateur_id INTEGER REFERENCES organisateurs(id) ON DELETE CASCADE,
     titre VARCHAR(255) NOT NULL,
     description TEXT,
     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP

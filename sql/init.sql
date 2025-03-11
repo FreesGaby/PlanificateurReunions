@@ -1,6 +1,7 @@
 -- Script SQL d'initialisation pour la base de données du projet
 
 -- Suppression des tables existantes pour éviter les conflits
+DROP TABLE IF EXISTS utilisateurs CASCADE;
 DROP TABLE IF EXISTS participants CASCADE;
 DROP TABLE IF EXISTS organisateurs CASCADE;
 DROP TABLE IF EXISTS reunions CASCADE;
@@ -9,12 +10,22 @@ DROP TABLE IF EXISTS reponses CASCADE;
 
 -- Création des tables
 
+-- ALTER TABLE utilisateurs ADD COLUMN IF NOT EXISTS role VARCHAR(20) NOT NULL DEFAULT 'participant';
+CREATE TABLE IF NOT EXISTS utilisateurs (
+    id SERIAL PRIMARY KEY, 
+    nom VARCHAR(100) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    mot_de_passe TEXT NOT NULL,
+    role VARCHAR(20) NOT NULL CHECK (role IN ('organisateur', 'participant'))
+);
+
 -- Table pour les organisateurs
 CREATE TABLE organisateurs (
     id SERIAL PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    mot_de_passe VARCHAR(255) NOT NULL
+    mot_de_passe VARCHAR(255) NOT NULL, 
+    role VARCHAR(20) NOT NULL CHECK (role IN ('organisateur', 'participant'))
 );
 
 -- Table pour les participants
@@ -53,8 +64,8 @@ CREATE TABLE reponses (
 -- Insertion de données initiales pour une démonstration immédiate
 
 -- Organisateur
-INSERT INTO organisateurs (nom, email, mot_de_passe)
-VALUES ('Imbert Gabriel', 'imbertgabriel1@gmail.com', 'disney20005');
+INSERT INTO organisateurs (nom, email, mot_de_passe, role)
+VALUES ('Imbert Gabriel', 'imbertgabriel1@gmail.com', 'disney20005', 'organisateur');
 
 -- Participants (un inscrit et un non inscrit)
 INSERT INTO participants (nom, email, inscrit)

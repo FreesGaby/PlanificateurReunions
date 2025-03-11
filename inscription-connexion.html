@@ -24,11 +24,18 @@
                         </div>
                         <div class="mb-3">
                             <label for="mdp_inscription" class="form-label">Mot de passe</label>
-                            <input type="password" class="form-control" id="mdp_inscription" required>
+                            <input type="password" class="form-control" id="mdp_inscription" name="mot_de_passe" required>
                         </div>
                         <div class="mb-3">
                             <label for="mdp_confirm" class="form-label">Confirmez le mot de passe</label>
-                            <input type="password" class="form-control" id="mdp_confirm" required>
+                            <input type="password" class="form-control" id="mdp_confirm" name="mdp_confirm" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Rôle</label>
+                            <select name="role" id="role" class="form-select">
+                                <option value="organisateur">Organisateur</option>
+                                <option value="participant">Participant</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn-primary">S'inscrire</button>
                     </form>
